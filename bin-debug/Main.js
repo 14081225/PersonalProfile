@@ -239,14 +239,14 @@ var Main = (function (_super) {
         bg2.addEventListener(egret.TouchEvent.TOUCH_BEGIN, bg2.mouseDown, bg2);
         bg2.addEventListener(egret.TouchEvent.TOUCH_END, bg2.mouseUp, bg2);
         var Singer = this.createBitmapByName("唱片_png");
-        Singer.width = Singer.height = 120;
+        Singer.width = Singer.height = 150;
         var Song = new Music();
         this.addChild(Song);
         Song.addChild(Singer);
         Song.anchorOffsetX = Singer.width / 2;
         Song.anchorOffsetY = Singer.height / 2;
-        Song.x = 570;
-        Song.y = 60;
+        Song.x = 530;
+        Song.y = 125;
         Song.addEventListener(egret.Event.ENTER_FRAME, function (evt) {
             switch (Song.isplay) {
                 case 1:
@@ -257,38 +257,71 @@ var Main = (function (_super) {
             }
         }, this);
         var topMask = new egret.Shape();
-        topMask.graphics.beginFill(0x000000, 0.5);
-        topMask.graphics.drawRect(0, 0, stageW, 172);
+        topMask.graphics.beginFill(0xE6E6FA, 0.8);
+        topMask.graphics.drawRect(0, 0, stageW, 200);
         topMask.graphics.endFill();
         topMask.y = 33;
-        this.addChild(topMask);
-        var line = new egret.Shape();
-        line.graphics.lineStyle(2, 0xffffff);
-        line.graphics.moveTo(0, 0);
-        line.graphics.lineTo(0, 117);
-        line.graphics.endFill();
-        line.x = 172;
-        line.y = 61;
-        this.addChild(line);
+        bg2.addChild(topMask);
+        var topMask2 = new egret.Shape();
+        topMask2.graphics.beginFill(0xE6E6FA, 0.8);
+        topMask2.graphics.drawRect(0, 0, stageW, 200);
+        topMask2.graphics.endFill();
+        topMask2.y = -100;
+        topMask2.alpha = 0;
+        bg1.addChild(topMask2);
         var colorLabel = new egret.TextField();
-        colorLabel.textColor = 0xffffff;
+        colorLabel.textColor = 0x666666;
         colorLabel.width = stageW - 172;
-        colorLabel.textAlign = "center";
-        colorLabel.text = "Hello Egret";
-        colorLabel.size = 24;
-        colorLabel.x = 172;
-        colorLabel.y = 80;
-        this.addChild(colorLabel);
+        colorLabel.textAlign = "left";
+        colorLabel.text = "Liku\n14081225";
+        colorLabel.size = 40;
+        colorLabel.x = 40;
+        colorLabel.y = 60;
+        bg2.addChild(colorLabel);
+        /*
+               var topMask2 = new egret.Shape();
+                topMask2.graphics.beginFill(0xE6E6FA, 0.8);
+                topMask2.graphics.drawRect(280, 400, 300, 500);
+                topMask2.graphics.endFill();
+         
+                bg2.addChild(topMask2);
+        
+        */
         var textfield = new egret.TextField();
-        this.addChild(textfield);
         textfield.alpha = 0;
         textfield.width = stageW - 172;
-        textfield.textAlign = egret.HorizontalAlign.CENTER;
-        textfield.size = 24;
+        textfield.textAlign = egret.HorizontalAlign.LEFT;
+        textfield.size = 30;
         textfield.textColor = 0xffffff;
-        textfield.x = 172;
-        textfield.y = 135;
+        textfield.x = 40;
+        textfield.y = 180;
+        bg2.addChild(textfield);
         this.textfield = textfield;
+        var An = new egret.TextField();
+        An.size = 30;
+        An.textColor = 0x666666;
+        An.alpha = 0;
+        An.text = "因为是一个自己不夸自己\n就没有人夸自己的人\n所以不管怎么样都要夸自己";
+        An.x = 20;
+        An.y = 90;
+        bg1.addChild(An);
+        topMask2.touchEnabled = true;
+        var Quest = new egret.TextField();
+        Quest.size = 50;
+        Quest.textColor = 0x999999;
+        Quest.fontFamily = "SimHei";
+        Quest.text = "朋友\n你点一下试试";
+        Quest.x = 20;
+        Quest.y = 90;
+        bg1.addChild(Quest);
+        bg1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () { Fade(); }, this);
+        function Fade() {
+            topMask2.touchEnabled = false;
+            egret.Tween.get(An).wait(600).to({ "alpha": 1 }, 600);
+            egret.Tween.get(Quest).to({ "alpha": 0 }, 600);
+            egret.Tween.get(topMask2).to({ "alpha": 0.5 }, 500);
+            egret.Tween.get(topMask2).to({ y: 33 }, 500);
+        }
         //根据name关键字，异步获取一个json配置文件，name属性请参考resources/resource.json配置文件的内容。
         // Get asynchronously a json configuration file according to name keyword. As for the property of name please refer to the configuration file of resources/resource.json.
         RES.getResAsync("description_json", this.startAnimation, this);
