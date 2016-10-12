@@ -59,15 +59,12 @@ class BG extends egret.DisplayObjectContainer {
     }
 
     public mouseUp(evt:egret.TouchEvent) {
-            this._touchStatus = false;
-            console.log("1");
+            this._touchStatus = false;         
             if(this.x>=-this.stageW/3&&this.x<0) {
                 egret.Tween.get( this ).to( {x:0,y:0}, 200, egret.Ease.sineIn )
-                 .to( {x:-25,y:0}, 100, egret.Ease.sineIn ).to( {x:0,y:0}, 100, egret.Ease.sineIn );
-                  console.log("2");
+                 .to( {x:-25,y:0}, 100, egret.Ease.sineIn ).to( {x:0,y:0}, 100, egret.Ease.sineIn );     
             }
             if(this.x<=this.stageW/3&&this.x>0){
-                 console.log(this.stageW/3);
                 egret.Tween.get( this ).to( {x:0,y:0}, 200, egret.Ease.sineIn )
                  .to( {x:25,y:0}, 100, egret.Ease.sineIn ).to( {x:0,y:0}, 100, egret.Ease.sineIn );
             }

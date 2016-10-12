@@ -60,14 +60,11 @@ var BG = (function (_super) {
     };
     p.mouseUp = function (evt) {
         this._touchStatus = false;
-        console.log("1");
         if (this.x >= -this.stageW / 3 && this.x < 0) {
             egret.Tween.get(this).to({ x: 0, y: 0 }, 200, egret.Ease.sineIn)
                 .to({ x: -25, y: 0 }, 100, egret.Ease.sineIn).to({ x: 0, y: 0 }, 100, egret.Ease.sineIn);
-            console.log("2");
         }
         if (this.x <= this.stageW / 3 && this.x > 0) {
-            console.log(this.stageW / 3);
             egret.Tween.get(this).to({ x: 0, y: 0 }, 200, egret.Ease.sineIn)
                 .to({ x: 25, y: 0 }, 100, egret.Ease.sineIn).to({ x: 0, y: 0 }, 100, egret.Ease.sineIn);
         }
@@ -248,7 +245,7 @@ var Main = (function (_super) {
         Song.addChild(Singer);
         Song.anchorOffsetX = Singer.width / 2;
         Song.anchorOffsetY = Singer.height / 2;
-        Song.x = 550;
+        Song.x = 570;
         Song.y = 60;
         Song.addEventListener(egret.Event.ENTER_FRAME, function (evt) {
             switch (Song.isplay) {
