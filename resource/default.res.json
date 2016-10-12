@@ -1,0 +1,50 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,02_jpg,03_jpg,大张伟-葫芦娃_mp3,01_jpg,唱片_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/bg.jpg",
+			"type": "image",
+			"name": "bg_jpg"
+		},
+		{
+			"url": "assets/egret_icon.png",
+			"type": "image",
+			"name": "egret_icon_png"
+		},
+		{
+			"url": "config/description.json",
+			"type": "json",
+			"name": "description_json"
+		},
+		{
+			"url": "assets/02.jpg",
+			"type": "image",
+			"name": "02_jpg"
+		},
+		{
+			"url": "assets/03.jpg",
+			"type": "image",
+			"name": "03_jpg"
+		},
+		{
+			"url": "assets/大张伟-葫芦娃.mp3",
+			"type": "sound",
+			"name": "大张伟-葫芦娃_mp3"
+		},
+		{
+			"url": "assets/01.jpg",
+			"type": "image",
+			"name": "01_jpg"
+		},
+		{
+			"url": "assets/唱片.png",
+			"type": "image",
+			"name": "唱片_png"
+		}
+	]
+}
